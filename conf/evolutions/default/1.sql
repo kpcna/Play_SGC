@@ -18,6 +18,13 @@ create table person (
   constraint pk_person primary key (id))
 ;
 
+create table user (
+  email                     varchar(255) not null,
+  name                      varchar(255),
+  password                  varchar(255),
+  constraint pk_user primary key (email))
+;
+
 
 
 
@@ -28,6 +35,8 @@ SET FOREIGN_KEY_CHECKS=0;
 drop table cours;
 
 drop table person;
+
+drop table user;
 
 SET FOREIGN_KEY_CHECKS=1;
 

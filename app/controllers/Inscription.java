@@ -2,6 +2,7 @@ package controllers;
 
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.Security;
 import views.html.inscription;
 
 
@@ -10,6 +11,7 @@ import views.html.inscription;
  */
 public class Inscription extends Controller
 {
+    @Security.Authenticated(Secured.class)
     public static Result inscription() {return ok(inscription.render("MY not your new application is ready."));
     }
 }
