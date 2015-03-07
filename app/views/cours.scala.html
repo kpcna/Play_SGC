@@ -1,0 +1,14 @@
+@(message: String)
+
+@main("CoursController") {
+
+    <script type='text/javascript' src='@routes.Assets.at("js/cours.js")'></script>
+
+    <ul id="courses"></ul>
+
+    <form action="@routes.CoursController.addCours()" method="post">
+        <input type="text" name="titre"/>
+        <button>Ajouter Cours</button>
+    </form>
+
+}
