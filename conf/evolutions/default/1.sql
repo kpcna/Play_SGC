@@ -18,24 +18,16 @@ create table person (
   constraint pk_person primary key (id))
 ;
 
-create sequence cours_seq;
-
-create sequence person_seq;
-
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists cours;
+drop table cours;
 
-drop table if exists person;
+drop table person;
 
-SET REFERENTIAL_INTEGRITY TRUE;
-
-drop sequence if exists cours_seq;
-
-drop sequence if exists person_seq;
+SET FOREIGN_KEY_CHECKS=1;
 
