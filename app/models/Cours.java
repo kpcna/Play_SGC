@@ -24,5 +24,5 @@ public class Cours extends Model {
 
     public int credits;
 
-    public List<Cours> prealables;
+    public String siglePrealable;
 }

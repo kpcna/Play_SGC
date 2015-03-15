@@ -21,6 +21,14 @@ $(document).ready(function ($) {
                             faveColor: '#33334C'
                         }
                     });
+                    demoEdges.push({
+                        data: {
+                            source: element.sigle,
+                            target:element.siglePrealable,
+                            faveColor: '#33334C',
+                            strength: 20
+                        }
+                    });
                 });
             }
         })

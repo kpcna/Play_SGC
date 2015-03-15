@@ -9,6 +9,7 @@ create table cours (
   description               varchar(255),
   sigle                     varchar(255),
   credits                   integer,
+  sigle_prealable           varchar(255),
   constraint pk_cours primary key (id))
 ;
 
