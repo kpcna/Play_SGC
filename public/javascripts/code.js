@@ -2,15 +2,18 @@ $(function(){ // on dom ready
 
 $('#cy').cytoscape({
   layout: {
-    name: 'cose',
-    padding: 10
+    name: 'breadthfirst',
+    padding: 10,
+      directed: true,
+    avoidOverlap: true,
+      roots:['PHY150','LOG240','MAT150','COM101']
   },
   
   style: cytoscape.stylesheet()
     .selector('node')
       .css({
         'shape': 'data(faveShape)',
-        'width': '50',
+        'width': '70',
         'content': 'data(name)',
         'text-valign': 'center',
         'text-outline-width': 0.5,
@@ -49,18 +52,18 @@ $('#cy').cytoscape({
   
   elements: {
     nodes: [
-      { data: { id: 'LOG515', name: 'LOG515', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 300, y: 250 },locked:true, selectable:true, selected:true, grabbable:true },
-      { data: { id: 'MAT150', name: 'MAT150', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 100, y: 100 },locked:true },
-      { data: { id: 'PHY150', name: 'PHY150', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 100, y: 150 },locked:true },
-      { data: { id: 'COM101', name: 'COM101', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 100, y: 200 },locked:true },
-      { data: { id: 'PHY330', name: 'PHY330', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 200, y: 150 },locked:true },
-      { data: { id: 'LOG240', name: 'LOG240', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 100, y: 250 },locked:true },
-      { data: { id: 'LOG330', name: 'LOG330', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, renderedPosition: { x: 200, y: 250 },locked:true },
+      { data: { id: 'LOG515', name: 'LOG515', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }, selectable:true, selected:true, grabbable:true },
+      { data: { id: 'MAT150', name: 'MAT150', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }},
+      { data: { id: 'PHY150', name: 'PHY150', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }},
+      { data: { id: 'COM101', name: 'COM101', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }},
+      { data: { id: 'PHY330', name: 'PHY330', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }},
+      { data: { id: 'LOG240', name: 'LOG240', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }},
+      { data: { id: 'LOG330', name: 'LOG330', weight: 45, faveColor: '#33334C', faveShape: 'rectangle' }},
     ],
     edges: [
       { data: { source: 'PHY150', target: 'PHY330', faveColor: '#33334C', strength: 20 } },
-      { data: { source: 'LOG240', target: 'LOG330', faveColor: '#33334C', strength: 50 } },
-      { data: { source: 'LOG330', target: 'LOG515', faveColor: '#33334C', strength: 40 } }
+      { data: { source: 'LOG240', target: 'LOG330', faveColor: '#33334C', strength: 20 } },
+      { data: { source: 'LOG330', target: 'LOG515', faveColor: '#33334C', strength: 20 } }
     ]
   },
   

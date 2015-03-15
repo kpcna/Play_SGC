@@ -3,6 +3,7 @@ package models;
 import play.db.ebean.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -12,7 +13,8 @@ import javax.persistence.Id;
 public class Person extends Model
 {
     @Id
-    public String id;
+    @GeneratedValue
+    public Long id;
 
     public String name;
 }

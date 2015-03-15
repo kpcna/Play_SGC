@@ -1,0 +1,62 @@
+@(user: User)
+
+@main(user) {
+
+    <script type='text/javascript' src='@routes.Assets.at("js/users.js")'></script>
+
+    <h2>Liste des utilisateurs</h2>
+    <ul></ul>
+
+    <table class="table table-condensed" id="users">
+        <tr>
+            <th>Email</th>
+            <th>Nom</th>
+            <th>Type d'usager</th>
+        </tr>
+    </table>
+
+    <h2>Ajouter un utilisateur</h2>
+
+    <form action="@routes.UserController.addUser()" method="post">
+        <div class="form-group">
+            <label>Email : </label>
+            <input type="text" name="email" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Nom : </label>
+            <input type="text" name="name" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Type d'usager :</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="userType" value="0" checked>
+                    Administrateur
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="userType" value="1">
+                    Professeur
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="userType" value="2">
+                    Etudiant
+                </label>
+            </div>
+        </div>
+
+        <button class="btn btn-primary">Ajouter</button>
+
+    </form>
+
+}

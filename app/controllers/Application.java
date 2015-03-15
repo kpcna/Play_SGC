@@ -17,7 +17,7 @@ public class Application extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result index() {
-        return ok(index.render("MY not your new application is ready."));
+        return ok(index.render(User.find.byId(request().username())));
     }
 
     @Security.Authenticated(Secured.class)

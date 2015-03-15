@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Cours;
+import models.User;
 import play.data.Form;
 import play.db.ebean.Model;
 import play.mvc.Controller;
@@ -20,7 +21,7 @@ public class CoursController extends Controller {
 
     @Security.Authenticated(Secured.class)
     public static Result index() {
-        return ok(cours.render("MY not your new application is ready."));
+        return ok(cours.render(User.find.byId(request().username())));
     }
 
     @Security.Authenticated(Secured.class)
