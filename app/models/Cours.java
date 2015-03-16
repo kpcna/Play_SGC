@@ -13,16 +13,17 @@ import java.util.List;
 @Entity
 public class Cours extends Model {
     @Id
-    @GeneratedValue
-    public Long id;
+    public String sigle;
 
     public String titre;
 
     public String description;
 
-    public String sigle;
-
     public int credits;
 
     public String siglePrealable;
+
+    public static Finder<String,Cours> find = new Finder<String,Cours>(
+            String.class, Cours.class
+    );
 }

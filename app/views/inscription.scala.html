@@ -3,4 +3,10 @@
 @main(user) {
 <h1>Inscription</h1>
     <div id="cy"></div>
+    <h4 id="preview"></h4>
+    <form action="@routes.Inscription.inscriptionCours()" method="post">
+    <input type="text" name="coursselectionne" class="form-control" id="coursfield"/>
+    Entrez votre mot de passe pour confirmer : <input type="password" name="password"/>
+    <button>Confirmer le choix</button>
+    </form>
 }

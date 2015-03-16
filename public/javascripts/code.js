@@ -92,13 +92,11 @@ $(document).ready(function ($) {
             ready: function(){
                 window.cy = this;
 
-                /*cy.on('click', function(evt){
+                cy.on('click', function(evt){
                  console.log( 'clicked ' + evt.cyTarget.id() );
-                 $('#preview').text('CoursController choisi : ' + evt.cyTarget.id());
-
-                 $.get( "/inscription", { name: "John" } );
-
-                 });*/
+                 $('#preview').text('Cours choisi pour inscription : ' + evt.cyTarget.id());
+                 $('#coursfield').val('' + evt.cyTarget.id());
+                 });
             }
         });
     });

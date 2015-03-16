@@ -4,13 +4,12 @@
 # --- !Ups
 
 create table cours (
-  id                        bigint auto_increment not null,
+  sigle                     varchar(255) not null,
   titre                     varchar(255),
   description               varchar(255),
-  sigle                     varchar(255),
   credits                   integer,
   sigle_prealable           varchar(255),
-  constraint pk_cours primary key (id))
+  constraint pk_cours primary key (sigle))
 ;
 
 create table person (
@@ -31,15 +30,15 @@ create table user (
 
 create table coursinscrits (
   user_email                     varchar(255) not null,
-  cours_id                       bigint not null,
-  constraint pk_coursinscrits primary key (user_email, cours_id))
+  cours_sigle                    varchar(255) not null,
+  constraint pk_coursinscrits primary key (user_email, cours_sigle))
 ;
 
 
 
 alter table coursinscrits add constraint fk_coursinscrits_user_01 foreign key (user_email) references user (email) on delete restrict on update restrict;
 
-alter table coursinscrits add constraint fk_coursinscrits_cours_02 foreign key (cours_id) references cours (id) on delete restrict on update restrict;
+alter table coursinscrits add constraint fk_coursinscrits_cours_02 foreign key (cours_sigle) references cours (sigle) on delete restrict on update restrict;
 
 # --- !Downs
 
