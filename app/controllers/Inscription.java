@@ -6,7 +6,9 @@ import play.data.DynamicForm;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import play.data.validation.Validation;
 import views.html.inscription;
+import play.mvc.Result.*;
 
 import static play.data.Form.form;
 
@@ -16,8 +18,9 @@ import static play.data.Form.form;
  */
 public class Inscription extends Controller
 {
+
     @Security.Authenticated(Secured.class)
-    public static Result inscription() {return ok(inscription.render(User.find.byId(request().username())));
+    public static Result inscription(String errorMsg) {return ok(inscription.render(User.find.byId(request().username()),errorMsg));
     }
 
     @Security.Authenticated(Secured.class)
@@ -30,8 +33,11 @@ public class Inscription extends Controller
             Cours currCours = Cours.find.byId(dynamicForm.get("coursselectionne"));
             currUser.coursInscritList.add(currCours);
             currUser.save();
-        }           
-
-        return redirect(routes.Inscription.inscription());
+            return redirect(routes.Inscription.inscription("success"));
+        }
+        else
+        {
+            return redirect(routes.Inscription.inscription("error"));
+        }
     }
 }

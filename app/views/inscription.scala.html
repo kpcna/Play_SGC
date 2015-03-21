@@ -1,12 +1,38 @@
-@(user: User)
+@(user: User, errorMsg : String)
 
 @main(user) {
-<h1>Inscription</h1>
-    <div id="cy"></div>
-    <h4 id="preview"></h4>
-    <form action="@routes.Inscription.inscriptionCours()" method="post">
-    <input type="text" name="coursselectionne" class="form-control" id="coursfield"/>
-    Entrez votre mot de passe pour confirmer : <input type="password" name="password"/>
-    <button>Confirmer le choix</button>
-    </form>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Inscription</h2>
+        </div>
+        <div class="panel-body">
+            <div id="cy"></div>
+            <h4 id="preview">Veuillez choisir un cours sur le graphe</h4>
+            <label>Entrez votre mot de passe pour vous inscire au cours</label>
+            <form action="@routes.Inscription.inscriptionCours()" method="post" class="form-inline">
+                <div class="form-group">
+                    <input type="hidden" name="coursselectionne" id="coursfield"/>
+                    <input class="form-control"  type="password" name="password"/>
+                    <button class="btn btn-default">Confirmer le choix</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+
+
+    @errorMsg match {
+
+        case "success" => {
+            <div class="alert alert-success" role="alert">Inscription réussie.</div>
+        }
+
+        case "" => {
+        }
+
+        case "error" => {
+            <div class="alert alert-danger" role="alert">Ce mot de passe n'est pas valide. L'inscription ne peut pas être completée.</div>
+        }
+
+    }
 }

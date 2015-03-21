@@ -1,0 +1,40 @@
+@(user: User)
+
+@main(user) {
+    <script type='text/javascript' src='@routes.Assets.at("js/horaire.js")'></script>
+
+    <h2>Ajouter un horaire</h2>
+
+    <form action="@routes.HoraireController.addHoraire()" method="post">
+        <div class="form-group">
+            <label>Date début :</label>
+            <input type="text" name="DateDebut" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Date fin :</label>
+            <input type="text" name="DateFin" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Heure début :</label>
+            <input type="text" name="HeureDebut" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Heure fin</label>
+            <input type="text" name="HeureFin" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label>Cours associé</label>
+            <select id="CoursSigle" class="form-control" name="CoursSigle">
+                <option value=""></option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Ajouter</button>
+
+    </form>
+
+}

@@ -12,6 +12,16 @@ create table cours (
   constraint pk_cours primary key (sigle))
 ;
 
+create table horaire (
+  id                        bigint auto_increment not null,
+  date_debut                varchar(255),
+  date_fin                  varchar(255),
+  heure_debut               varchar(255),
+  heure_fin                 varchar(255),
+  cours_sigle               varchar(255),
+  constraint pk_horaire primary key (id))
+;
+
 create table person (
   id                        bigint auto_increment not null,
   name                      varchar(255),
@@ -45,6 +55,8 @@ alter table coursinscrits add constraint fk_coursinscrits_cours_02 foreign key (
 SET FOREIGN_KEY_CHECKS=0;
 
 drop table cours;
+
+drop table horaire;
 
 drop table person;
 
