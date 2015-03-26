@@ -7,28 +7,51 @@
 
     <form action="@routes.HoraireController.addHoraire()" method="post">
         <div class="form-group">
+            <label>Journée de cours :</label>
+            <label class="checkbox-inline">
+                <input type="radio" name="journee" value="Lundi">
+                Lundi
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="journee" value="Mardi">
+                Mardi
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="journee" value="Mercredi">
+                Mercredi
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="journee" value="Jeudi">
+                Jeudi
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="journee" value="Vendredi">
+                Vendredi
+            </label>
+        </div>
+        <div class="form-group">
             <label>Date début :</label>
-            <input type="text" name="DateDebut" class="form-control"/>
+            <input type="text" name="datedebut" class="form-control" placeholder="dd\mm\aaaa"/>
         </div>
 
         <div class="form-group">
             <label>Date fin :</label>
-            <input type="text" name="DateFin" class="form-control"/>
+            <input type="text" name="datefin" class="form-control" placeholder="dd\mm\aaaa"/>
         </div>
 
         <div class="form-group">
             <label>Heure début :</label>
-            <input type="text" name="HeureDebut" class="form-control"/>
+            <input type="text" name="heuredebut" class="form-control" placeholder="hh:mm"/>
         </div>
 
         <div class="form-group">
             <label>Heure fin</label>
-            <input type="text" name="HeureFin" class="form-control"/>
+            <input type="text" name="heurefin" class="form-control" placeholder="hh:mm"/>
         </div>
 
         <div class="form-group">
             <label>Cours associé</label>
-            <select id="CoursSigle" class="form-control" name="CoursSigle">
+            <select id="CoursSigle" class="form-control" name="courssigle">
                 <option value=""></option>
             </select>
         </div>

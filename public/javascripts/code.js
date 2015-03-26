@@ -96,6 +96,19 @@ $(document).ready(function ($) {
                  console.log( 'clicked ' + evt.cyTarget.id() );
                  $('#preview').text('Cours choisi pour inscription : ' + evt.cyTarget.id());
                  $('#coursfield').val('' + evt.cyTarget.id());
+                    $.ajax({
+                        type: 'GET',
+                        url: '/horaires/' + evt.cyTarget.id(),
+                        data: { get_param: 'value' },
+                        dataType: 'json',
+                        success: function (data)
+                        {
+                            $('#horairesdispo').text("");
+                            $.each(data, function(index, horaire) {
+                                $('#horairesdispo').append("<li>" + horaire.journee + "</li>");
+                            } );
+                        }
+                    });
                  });
             }
         });

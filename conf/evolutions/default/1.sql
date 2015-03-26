@@ -14,11 +14,12 @@ create table cours (
 
 create table horaire (
   id                        bigint auto_increment not null,
-  date_debut                varchar(255),
-  date_fin                  varchar(255),
-  heure_debut               varchar(255),
-  heure_fin                 varchar(255),
-  cours_sigle               varchar(255),
+  journee                   varchar(255),
+  datedebut                 varchar(255),
+  datefin                   varchar(255),
+  heuredebut                varchar(255),
+  heurefin                  varchar(255),
+  courssigle                varchar(255),
   constraint pk_horaire primary key (id))
 ;
 

@@ -12,15 +12,17 @@ public class Horaire extends Model {
     @GeneratedValue
     public Long id;
 
-    public String DateDebut;
+    public String journee;
 
-    public String DateFin;
+    public String datedebut;
 
-    public String HeureDebut;
+    public String datefin;
 
-    public String HeureFin;
+    public String heuredebut;
 
-    public String CoursSigle;
+    public String heurefin;
+
+    public String courssigle;
 
     public static Finder<String,Horaire> find = new Finder<String,Horaire>(
             String.class, Horaire.class
