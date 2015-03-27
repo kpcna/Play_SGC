@@ -97,29 +97,48 @@ $(document).ready(function ($) {
                 window.cy = this;
 
                 cy.on('click', function(evt){
-                 console.log( 'clicked ' + evt.cyTarget.id() );
-                 $('#preview').text('Cours choisi pour inscription : ' + evt.cyTarget.id());
-                 $('#coursfield').val('' + evt.cyTarget.id());
+                console.log( 'clicked ' + evt.cyTarget.id() );
+                $('#preview').text('Cours choisi pour inscription : ' + evt.cyTarget.id());
+                $('#coursfield').val('' + evt.cyTarget.id());
+                $('#Lundi').html("");
+                $('#Mardi').html("");
+                $('#Mercredi').html("");
+                $('#Jeudi').html("");
+                $('#Vendredi').html("");
+
+                $.when(
                     $.ajax({
                         type: 'GET',
-                        url: '/horaires/' + evt.cyTarget.id(),
+                        url: '/courses/' + evt.cyTarget.id(),
                         data: { get_param: 'value' },
                         dataType: 'json',
                         success: function (data)
                         {
                             $('#horairesdispo').text("");
-                            $.each(data, function(index, horaire) {
-                                $('#Lundi').html("");
-                                $('#Mardi').html("");
-                                $('#Mercredi').html("");
-                                $('#Jeudi').html("");
-                                $('#Vendredi').html("");
-                                //$('#horairesdispo').append("<li> Titre du cours :" + horaire.journee + "</li>");
-                                $('#' + horaire.journee).html("<h4>" + evt.cyTarget.id() + "</h4><br>" + horaire.heuredebut + " - " + horaire.heurefin);
+                            $.each(data, function(index, cours) {
+                                $('#horairesdispo').append("<li> Titre du cours :" + cours.titre + "</li>" + "<li> Description :" + cours.description + "</li>"
+                                + "<li> # de credits :" + cours.credits + "</li>" + "<li> Cours prealable :" + cours.siglePrealable + "</li>");
                             } );
                         }
+                    })
+                )
+                    .done(function ()
+                    {
+                        $.ajax({
+                            type: 'GET',
+                            url: '/horaires/' + evt.cyTarget.id(),
+                            data: { get_param: 'value' },
+                            dataType: 'json',
+                            success: function (data)
+                            {
+                                $.each(data, function(index, horaire) {
+                                    $('#' + horaire.journee).html("<h4>" + evt.cyTarget.id() + "</h4><br>" + horaire.heuredebut + " - " + horaire.heurefin);
+                                } );
+                            }
+                        });
                     });
-                 });
+
+             });
             }
         });
     });

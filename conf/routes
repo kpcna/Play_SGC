@@ -17,7 +17,9 @@ GET         /cours                   controllers.CoursController.index()
 
 POST        /addcours                controllers.CoursController.addCours()
 
-GET         /courses                 controllers.CoursController.getCours()
+GET         /courses                 controllers.CoursController.getCours(coursSigle = "")
+
+GET         /courses/:coursSigle     controllers.CoursController.getCours(coursSigle)
 
 GET         /login                   controllers.Application.login()
 
