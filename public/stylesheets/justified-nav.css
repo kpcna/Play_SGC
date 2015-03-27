@@ -84,3 +84,42 @@ body {
         padding-left: 0;
     }
 }
+
+.HoraireTable {
+    margin:0px;padding:0px;
+    width:100%;
+    border:1px solid #000000;
+}
+
+.HoraireTable table{
+     border-collapse: collapse;
+     border-spacing: 0;
+     width:100%;
+     height:100%;
+     margin:0px;padding:0px;
+ }
+
+.HoraireTable tr:nth-child(odd){ background-color:#e0e0e0; }
+.HoraireTable tr:nth-child(even){ background-color:#ffffff; }
+.HoraireTable td
+{
+vertical-align:middle;
+border:1px solid #000000;
+border-width:0px 1px 1px 0px;
+text-align:center;
+padding:30px;
+font-size:10px;
+font-family:Arial;
+font-weight:normal;
+color:#000000;
+}
+
+.HoraireTable tr:first-child td{
+    background-color:#333333;
+    text-align:center;
+    border-width:0px 0px 1px 1px;
+    font-size:14px;
+    font-family:Arial;
+    font-weight:bold;
+    color:#ffffff;
+}

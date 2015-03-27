@@ -39,7 +39,11 @@ $(document).ready(function ($) {
                 name: 'breadthfirst',
                 padding: 10,
                 directed: true,
-                avoidOverlap: true
+                avoidOverlap: true,
+                zoomingEnabled: false,
+                userZoomingEnabled: false,
+                panningEnabled: false,
+                userPanningEnabled: false
                 //roots:['PHY150','LOG240','MAT150','COM101']
             },
 
@@ -105,7 +109,13 @@ $(document).ready(function ($) {
                         {
                             $('#horairesdispo').text("");
                             $.each(data, function(index, horaire) {
-                                $('#horairesdispo').append("<li>" + horaire.journee + "</li>");
+                                $('#Lundi').html("");
+                                $('#Mardi').html("");
+                                $('#Mercredi').html("");
+                                $('#Jeudi').html("");
+                                $('#Vendredi').html("");
+                                //$('#horairesdispo').append("<li> Titre du cours :" + horaire.journee + "</li>");
+                                $('#' + horaire.journee).html("<h4>" + evt.cyTarget.id() + "</h4><br>" + horaire.heuredebut + " - " + horaire.heurefin);
                             } );
                         }
                     });

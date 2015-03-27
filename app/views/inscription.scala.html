@@ -8,9 +8,16 @@
         </div>
         <div class="panel-body">
             <div id="cy"></div>
-            <h4 id="preview">Veuillez choisir un cours sur le graphe</h4>
-            <label>Entrez votre mot de passe pour vous inscire au cours</label>
+            <h1 id="preview">Veuillez choisir un cours sur le graphe</h1>
             <ul id="horairesdispo"></ul>
+            <div class="HoraireTable" >
+                <table >
+                    <tr><td>Lundi</td><td>Mardi</td><td>Mercredi</td><td>Jeudi</td><td>Vendredi</td></tr>
+                    <tr><td id="Lundi"></td><td id="Mardi"></td><td id="Mercredi"></td><td id="Jeudi"></td><td id="Vendredi"></td></tr>
+                </table>
+            </div>
+            <br>
+            <label>Entrez votre mot de passe pour vous inscire au cours</label>
             <form action="@routes.Inscription.inscriptionCours()" method="post" class="form-inline">
                 <div class="form-group">
                     <input type="hidden" name="coursselectionne" id="coursfield"/>
